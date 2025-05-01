@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}JahFix Manager{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/global.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <div style="display: flex; min-height: 100vh;">
+        <!-- Sidebar -->
+        <aside style="width: 240px; background-color: #0F3E44; color: white; display: flex; flex-direction: column; justify-content: space-between; padding: 1rem;">
+            <div>
+                <div class="logo" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem;">
+                    <i class="ri-tools-fill" style="font-size: 1.5rem;"></i>
+                    <span style="font-size: 1.2rem; font-weight: bold;">JahFix Manager</span>
+                </div>
+                <nav>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1.2rem;">
+                        <li><a href="/dashboard" style="color: white; text-decoration: none;"><i class="ri-dashboard-line"></i> Dashboard</a></li>
+                        <li><a href="/reparaciones" style="color: white; text-decoration: none;"><i class="ri-tools-line"></i> Reparaciones</a></li>
+                        <li><a href="/historial" style="color: white; text-decoration: none;"><i class="ri-time-line"></i> Historial</a></li>
+                        <li><a href="/perfilempleado" style="color: white; text-decoration: none;"><i class="ri-user-line"></i> Perfil</a></li>
+                        <li><a href="/reportes" style="color: white; text-decoration: none;"><i class="ri-bar-chart-line"></i> Reportes</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <i class="ri-user-fill"></i>
+                <span>{{ user.first_name }}</span>
+            </div>
+            
+        </aside>
+
+        <!-- Main Content -->
+        <main style="flex-grow: 1; padding: 2rem; background-color: #F2F3F3;">
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
+</body>
+</html>

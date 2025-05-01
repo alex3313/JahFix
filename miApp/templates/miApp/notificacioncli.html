@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Notificar Cliente - JahFix Manager</title>
+    <style>
+        body {
+            font-family: "Segoe UI", sans-serif;
+            background-color: #f4f8f8;
+            margin: 0;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            padding: 2rem;
+        }
+        h2 {
+            color: #0F3E44;
+            margin-bottom: 1rem;
+        }
+        label {
+            display: block;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 0.7rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            margin-top: 1.5rem;
+            background-color: #0F3E44;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        button:hover {
+            background-color: #14565d;
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <title>Notificación de Reparación</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Enviar notificación de aprobación</h2>
+      <form method="post">
+        {% csrf_token %}
+  
+        <label for="nombre">Nombre del cliente:</label>
+        <input type="text" id="nombre" name="nombre" required>
+  
+        <label for="email">Correo del cliente:</label>
+        <input type="email" id="email" name="email" required>
+  
+        <label for="mensaje">Mensaje para el cliente:</label>
+        <textarea id="mensaje" name="mensaje" rows="8" required>
+  Estimado/a cliente,
+  
+  Su equipo con ID de reparación {{ reparacion_id }} ya ha esta completado. Puede pasar a retirarlo.
+  
+  Puede revisar directamente aquí:
+  http://127.0.0.1:8000/seguimiento/?id_reparacion={{ reparacion_id }}
+  
+  
+  Gracias por confiar en JahFix.
+        </textarea>
+  
+        <button type="submit">Enviar correo</button>
+      </form>
+    </div>
+  </body>
+  </html>
+

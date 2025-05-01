@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condiciones del Servicio - JahFix</title>
+    <link rel="stylesheet" href="{% static 'miApp/css/style.css' %}">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+    <img src="{% static 'miApp/img/logo.png' %}" alt="Logo JahFix" class="logo-icon">
+    <span>JahFix Manager</span>
+</div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}" class="activo">Inicio</a></li>
+                <li><a href="{% url 'sobre_nosotros' %}">Sobre nosotros</a></li>
+                <li><a href="{% url 'contactanos' %}">Contáctanos</a></li>
+                <li><a href="{% url 'condiciones' %}">Condiciones</a></li>
+
+                </ul>
+                </nav>
+        
+    </header>
+
+    <section class="hero1">
+        <h3>Condiciones del Servicio</h3>
+        <h4>Diagnóstico gratuito</h4>
+        <p>
+            Todo equipo recibido será evaluado sin costo. Una vez emitido el diagnóstico, se informará al cliente el presupuesto correspondiente antes de iniciar cualquier reparación.
+        </p>
+
+        <h4>Autorización del cliente</h4>
+        <p>
+            No se procederá con la reparación sin la aprobación explícita del cliente, ya sea de forma presencial o a través de nuestros canales digitales.
+        </p>
+
+        <h4>Tiempos de entrega</h4>
+        <p>
+            Los plazos de reparación varían según el tipo de daño y disponibilidad de repuestos. Se entregará una fecha estimada, sujeta a modificaciones que serán informadas oportunamente.
+        </p>
+
+        <h4>Garantía del servicio</h4>
+        <p>
+            Todas nuestras reparaciones cuentan con una garantía de 30 días a partir de la fecha de entrega. Esta cubre únicamente el trabajo realizado y las piezas reemplazadas.
+        </p>
+
+        <h4>Repuestos utilizados</h4>
+        <p>
+            JahFix trabaja con repuestos nuevos y de calidad certificada. En caso de uso de piezas compatibles, el cliente será informado previamente.
+        </p>
+
+        <h4>Pérdida de información</h4>
+        <p>
+            JahFix no se hace responsable por la pérdida de datos personales del dispositivo. Se recomienda realizar una copia de seguridad antes de dejar el equipo.
+        </p>
+
+        <h4>Abandono del equipo</h4>
+        <p>
+            Si un dispositivo no es retirado dentro de un plazo de 60 días desde la notificación de reparación finalizada, JahFix se reserva el derecho de disponer del equipo para cubrir costos operativos.
+        </p>
+
+        <h4>Seguimiento en línea</h4>
+        <p>
+            El cliente podrá consultar el estado de su reparación en línea mediante su número de seguimiento asignado al momento del ingreso del equipo.
+        </p>
+    </section>
+
+    <footer>
+        <p>© 2025 JahFix. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

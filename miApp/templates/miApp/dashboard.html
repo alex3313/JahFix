@@ -1,0 +1,82 @@
+{% extends "miApp/base1.html" %}
+{% block title %}Dashboard - JahFix Manager{% endblock %}
+
+{% block content %}
+<section style="display: flex; gap: 2rem; margin-bottom: 2rem;">
+    <div style="flex: 1; background-color: #0F3E44; color: white; border-radius: 15px; padding: 1.5rem; text-align: center;">
+        <div><i class="ri-briefcase-line" style="font-size: 1.5rem;"></i></div>
+        <div style="font-size: 2rem; font-weight: bold;">12</div>
+        <div>Reparaciones asignadas</div>
+    </div>
+    <div style="flex: 1; background-color: #0F3E44; color: white; border-radius: 15px; padding: 1.5rem; text-align: center;">
+        <div><i class="ri-loader-4-line" style="font-size: 1.5rem;"></i></div>
+        <div style="font-size: 2rem; font-weight: bold;">5</div>
+        <div>En proceso</div>
+    </div>
+    <div style="flex: 1; background-color: #0F3E44; color: white; border-radius: 15px; padding: 1.5rem; text-align: center;">
+        <div><i class="ri-checkbox-circle-line" style="font-size: 1.5rem;"></i></div>
+        <div style="font-size: 2rem; font-weight: bold;">3</div>
+        <div>Completadas</div>
+    </div>
+    <div style="flex: 1; background-color: #0F3E44; color: white; border-radius: 15px; padding: 1.5rem; text-align: center;">
+        <div><i class="ri-notification-3-line" style="font-size: 1.5rem;"></i></div>
+        <div style="font-size: 2rem; font-weight: bold;">2</div>
+        <div>Notificaciones</div>
+    </div>
+</section>
+
+<section>
+    <h2 style="margin-bottom: 1rem; color: #0F3E44;">Reparaciones recientes</h2>
+    <div style="background-color: white; border-radius: 15px; padding: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+        <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr style="background-color: #E3EAEA;">
+                    <th style="padding: 0.75rem; text-align: left;">ID</th>
+                    <th style="padding: 0.75rem; text-align: left;">Cliente</th>
+                    <th style="padding: 0.75rem; text-align: left;">Dispositivo</th>
+                    <th style="padding: 0.75rem; text-align: left;">Estado</th>
+                    <th style="padding: 0.75rem; text-align: left;">Fecha estimada</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 0.75rem;">001</td>
+                    <td>John López</td>
+                    <td>Teléfono</td>
+                    <td><span style="background-color: #4db6ac; color: white; padding: 0.3rem 0.6rem; border-radius: 20px; font-size: 0.85rem;">En proceso</span></td>
+                    <td>20/04/2024</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem;">002</td>
+                    <td>Ana Romero</td>
+                    <td>Laptop</td>
+                    <td><span style="background-color: #ffb74d; color: white; padding: 0.3rem 0.6rem; border-radius: 20px; font-size: 0.85rem;">Pendiente</span></td>
+                    <td>25/04/2024</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem;">003</td>
+                    <td>Francisco</td>
+                    <td>Tablet</td>
+                    <td><span style="background-color: #4db6ac; color: white; padding: 0.3rem 0.6rem; border-radius: 20px; font-size: 0.85rem;">En proceso</span></td>
+                    <td>25/04/2024</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem;">004</td>
+                    <td>Maria Lapon</td>
+                    <td>Laptop</td>
+                    <td><span style="background-color: #81c784; color: white; padding: 0.3rem 0.6rem; border-radius: 20px; font-size: 0.85rem;">Completada</span></td>
+                    <td>20/04/2024</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem;">005</td>
+                    <td>Andrés Vi</td>
+                    <td>Laptop</td>
+                    <td><span style="background-color: #81c784; color: white; padding: 0.3rem 0.6rem; border-radius: 20px; font-size: 0.85rem;">Completada</span></td>
+                    <td>30/04/2024</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}
+

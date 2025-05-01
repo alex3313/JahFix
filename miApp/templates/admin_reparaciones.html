@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gestión de Reparaciones</title>
+</head>
+<body>
+    <h1>Gestión de Reparaciones</h1>
+
+    <h2>Crear nueva reparación</h2>
+    <form method="post">
+        {% csrf_token %}
+        
+        <label for="id_fecha_ingreso">Fecha de Ingreso</label>
+        {{ form.fecha_ingreso }}<br>
+
+        <label for="id_estado">Estado</label>
+        {{ form.estado }}<br>
+
+        <label for="id_dispositivo">Dispositivo</label>
+        {{ form.dispositivo }}<br>
+
+        <label for="id_empleado">Empleado asignado</label>
+        {{ form.empleado }}<br>
+
+        <button type="submit">Crear Reparación</button>
+    </form>
+
+    <h2>Lista de Reparaciones</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Dispositivo</th>
+            <th>Empleado asignado</th>
+            <th>Estado</th>
+            <th>Fecha ingreso</th>
+        </tr>
+        {% for reparacion in reparaciones %}
+        <tr>
+            <td>{{ reparacion.id }}</td>
+            <td>{{ reparacion.dispositivo.cliente }}</td>
+            <td>{{ reparacion.dispositivo }}</td>
+            <td>{{ reparacion.empleado }}</td>
+            <td>{{ reparacion.estado }}</td>
+            <td>{{ reparacion.fecha_ingreso }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="6">No hay reparaciones.</td></tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

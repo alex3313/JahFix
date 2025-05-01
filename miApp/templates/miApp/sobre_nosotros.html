@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros - JahFix</title>
+    <link rel="stylesheet" href="{% static 'miApp/css/style.css' %}">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+    <img src="{% static 'miApp/img/logo.png' %}" alt="Logo JahFix" class="logo-icon">
+    <span>JahFix Manager</span>
+</div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}" class="activo">Inicio</a></li>
+                <li><a href="{% url 'sobre_nosotros' %}">Sobre nosotros</a></li>
+                <li><a href="{% url 'contactanos' %}">Contáctanos</a></li>
+                <li><a href="{% url 'condiciones' %}">Condiciones</a></li>
+
+                </ul>
+                </nav>
+        
+    </header>
+
+    <section class="hero1">
+        <h3>Sobre nosotros</h3>
+        <p>
+            JahFix es una empresa especializada en la reparación profesional de dispositivos electrónicos,
+            comprometida con brindar soluciones rápidas, confiables y de alta calidad a nuestros clientes.
+            Desde nuestros inicios, nos hemos enfocado en ofrecer un servicio técnico transparente, eficiente
+            y con atención personalizada.
+        </p>
+        <p>
+            Nuestro equipo está conformado por técnicos calificados que diagnostican y reparan equipos como teléfonos
+            de las distintas marcas, tablets y iPad, utilizando herramientas de última generación y repuestos certificados.
+            Además, nos destacamos por mantener una comunicación clara con nuestros clientes, permitiéndoles hacer
+            seguimiento en línea del estado de sus reparaciones en todo momento.
+        </p>
+        <p>
+            En JahFix, combinamos experiencia, tecnología y compromiso para garantizar la satisfacción de cada persona
+            que confía en nosotros. Más que un servicio técnico, somos una solución integral para la vida útil de tus dispositivos.
+        </p>
+    </section>
+
+    <footer>
+        <p>© 2025 JahFix. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

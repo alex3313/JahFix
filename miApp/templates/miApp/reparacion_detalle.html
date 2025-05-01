@@ -1,0 +1,65 @@
+{% extends "miApp/base1.html" %}
+{% block title %}Detalle Reparación{% endblock %}
+
+{% block content %}
+<h2 style="margin-bottom: 1.5rem; color: #0F3E44;">Resumen Técnico</h2>
+
+<!-- Dispositivo -->
+<div style="background-color: white; padding: 1rem; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); margin-bottom: 1.5rem;">
+    <h3 style="color: #0F3E44;">Dispositivo</h3>
+    <p><strong>Marca:</strong> {{ reparacion.dispositivo.marca }}</p>
+    <p><strong>Modelo:</strong> {{ reparacion.dispositivo.modelo }}</p>
+    <p><strong>Serie:</strong> {{ reparacion.dispositivo.serie }}</p>
+    <p><strong>Descripción:</strong> {{ reparacion.dispositivo.descripcion }}</p>
+</div>
+
+<!-- Cliente -->
+<div style="background-color: white; padding: 1rem; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); margin-bottom: 1.5rem;">
+    <h3 style="color: #0F3E44;">Cliente</h3>
+    <p><strong>Nombre:</strong> {{ reparacion.dispositivo.cliente.nombre }} {{ reparacion.dispositivo.cliente.apellido }}</p>
+    <p><strong>Teléfono:</strong> {{ reparacion.dispositivo.cliente.telefono }}</p>
+</div>
+
+<!-- Reparación -->
+<div style="background-color: white; padding: 1rem; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); margin-bottom: 1.5rem;">
+    <h3 style="color: #0F3E44;">Reparación</h3>
+    <p><strong>Estado:</strong> {{ reparacion.estado }}</p>
+    <p><strong>Fecha ingreso:</strong> {{ reparacion.fecha_ingreso|date:"d/m/Y" }}</p>
+</div>
+
+<!-- Historial técnico -->
+<div style="background-color: white; padding: 1rem; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); margin-bottom: 1.5rem;">
+    <h3 style="color: #0F3E44;">Historial Técnico</h3>
+    {% for e in reparacion.detalleetapa_set.all %}
+        <div style="margin-bottom: 1rem; border-bottom: 1px solid #ccc; padding-bottom: 0.5rem;">
+            <p><strong>Etapa:</strong> {{ e.etapa.nombre_etapa }}</p>
+            <p><strong>Inicio:</strong> {{ e.fecha_inicio|date:"d/m/Y" }} —
+               <strong>Fin:</strong>
+               {% if e.fecha_fin %}
+                   {{ e.fecha_fin|date:"d/m/Y" }}
+               {% else %}
+                   En curso
+               {% endif %}
+            </p>
+            <p><strong>Comentarios:</strong> {{ e.comentarios }}</p>
+            <p><strong>Técnico:</strong> {{ e.empleado.first_name }} {{ e.empleado.last_name }}</p>
+        </div>
+    {% empty %}
+        <p>No hay etapas registradas para esta reparación aún.</p>
+    {% endfor %}
+</div>
+
+<!-- Formulario para agregar nueva etapa -->
+<div style="background-color: white; padding: 1rem; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+    <h3 style="color: #0F3E44;">Agregar Etapa</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" style="background-color: #0F3E44; color: white; padding: 0.5rem 1rem; border: none; border-radius: 8px;">Guardar</button>
+    </form>
+</div>
+
+
+
+{% endblock %}
+

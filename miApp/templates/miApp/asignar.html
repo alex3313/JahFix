@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Reparación - JahFix Admin</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f0f4f5;
+            margin: 0;
+            padding: 2rem;
+        }
+
+        h2 {
+            color: #0F3E44;
+            margin-bottom: 2rem;
+        }
+
+        .container {
+            background-color: white;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #0F3E44;
+            margin-bottom: 0.3rem;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 0.6rem;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+
+        .form-section {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        button {
+            background-color: #4db6ac;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background-color: #3baaa0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Crear nueva reparación</h2>
+
+    <form action="{% url 'asignar' %}" method="POST">
+        {% csrf_token %}
+
+        <!-- Fecha ingreso -->
+        <div class="form-group">
+            <label for="fecha">Fecha de ingreso</label>
+            <input type="date" id="fecha" name="fecha_ingreso" required>
+        </div>
+
+        <!-- Datos del dispositivo -->
+        <div class="form-section">
+            <h3 style="color:#0F3E44;">Dispositivo</h3>
+            <div class="form-group">
+                <label for="marca">Marca</label>
+                <input type="text" id="marca" name="marca" required>
+            </div>
+            <div class="form-group">
+                <label for="modelo">Modelo</label>
+                <input type="text" id="modelo" name="modelo" required>
+            </div>
+            <div class="form-group">
+                <label for="serie">Número de serie</label>
+                <input type="text" id="serie" name="numero_serie" required>
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripción del problema</label>
+                <textarea id="descripcion" name="descripcion" rows="3" required></textarea>
+            </div>
+        </div>
+
+        <!-- Datos del cliente -->
+        <div class="form-section">
+            <h3 style="color:#0F3E44;">Cliente</h3>
+            <div class="form-group">
+                <label for="nombre_cliente">Nombre</label>
+                <input type="text" id="nombre_cliente" name="nombre_cliente" required>
+            </div>
+            <div class="form-group">
+                <label for="apellido_cliente">Apellido</label>
+                <input type="text" id="apellido_cliente" name="apellido_cliente" required>
+            </div>
+            <div class="form-group">
+                <label for="correo_cliente">Correo electrónico</label>
+                <input type="email" id="correo_cliente" name="correo_cliente" required>
+            </div>
+            <div class="form-group">
+                <label for="telefono_cliente">Teléfono</label>
+                <input type="text" id="telefono_cliente" name="telefono_cliente" required>
+            </div>
+        </div>
+
+        <!-- Empleado asignado -->
+        <div class="form-section">
+            <h3 style="color:#0F3E44;">Asignación</h3>
+            <div class="form-group">
+                <label for="empleado">Asignar a:</label>
+                <select id="empleado" name="id_empleado" required>
+                    <option value="">-- Selecciona un empleado --</option>
+                    {% for empleado in empleados %}
+                        <option value="{{ empleado.id }}">{{ empleado.first_name }} {{ empleado.last_name }} ({{ empleado.username }})</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem;">
+            <button type="submit">Crear reparación</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

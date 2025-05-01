@@ -1,0 +1,33 @@
+{% extends 'miApp/base.html' %}
+
+{% block content %}
+<section class="hero">
+  <div class="text">
+    <h2>¿Con qué tipo de dispositivo tienes problemas?</h2>
+    <p>Nuestros expertos evaluarán tu dispositivo y te lo devolverán en poco tiempo.</p>
+  </div>
+</section>
+
+<section class="caracteristicas">
+  <div class="card"><img src="/static/img/icono-iphone.png" alt="iPhone"><p>iPhone</p></div>
+  <div class="card"><img src="/static/img/icono-ipad.png" alt="iPad"><p>iPad</p></div>
+  <div class="card"><img src="/static/img/icono-android.png" alt="Android"><p>Android</p></div>
+  <div class="card"><img src="/static/img/icono-tablet.png" alt="Tablet"><p>Tablet</p></div>
+</section>
+
+<section class="caracteristicas">
+  <h3>¿Qué tiene de malo?</h3>
+  <p style="width: 100%; text-align: center;">¡No te preocupes, lo arreglaremos!</p>
+
+  <div class="card">🔋 Batería</div>
+  <div class="card">📱 Pantalla quebrada</div>
+  <div class="card">⚡ Puerto de carga</div>
+  <div class="card">📸 Lente de cámara</div>
+  <div class="card">🩺 Diagnóstico gratis</div>
+</section>
+
+<section class="caracteristicas" style="flex-direction: column; align-items: center;">
+  <textarea placeholder="Describe otros problemas" rows="4" style="width: 60%; margin-bottom: 1rem;"></textarea>
+  <a href="{% url 'cotizacionin' %}" class="btn">Continuar</a>
+</section>
+{% endblock %}

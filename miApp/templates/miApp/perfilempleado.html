@@ -1,0 +1,34 @@
+{% extends "miApp/base1.html" %}
+
+{% block title %}Perfil - JahFix Manager{% endblock %}
+
+{% block content %}
+<h2 style="margin-bottom: 1.5rem; color: #0F3E44;">Perfil del Empleado</h2>
+
+<div style="background-color: white; border-radius: 15px; padding: 2rem; max-width: 500px; margin: 0 auto; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+    
+    <!-- Icono de perfil -->
+    <div style="text-align: center; margin-bottom: 1.5rem;">
+        <div style="background-color: #e0f2f1; border-radius: 50%; width: 80px; height: 80px; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 2.5rem; color: #4db6ac;">👤</span>
+        </div>
+    </div>
+
+    <!-- Datos del empleado -->
+    <div style="margin-bottom: 1rem;">
+        <strong style="color: #0F3E44;">Nombre:</strong>
+        <p style="margin: 0;">{{ empleado.first_name }} {{ empleado.last_name }}</p>
+    </div>
+    
+    <div style="margin-bottom: 1rem;">
+        <strong style="color: #0F3E44;">Correo electrónico:</strong>
+        <p style="margin: 0;">{{ empleado.email }}</p>
+    </div>
+
+    <div style="margin-bottom: 1rem;">
+        <strong style="color: #0F3E44;">Rol:</strong>
+        <p style="margin: 0;">{{ empleado.rol }}</p>
+    </div>
+
+</div>
+{% endblock %}

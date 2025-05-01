@@ -1,0 +1,49 @@
+{% extends "miApp/base1.html" %}
+{% block title %}Historial de Reparaciones - JahFix Manager{% endblock %}
+
+{% block content %}
+<h2 style="margin-bottom: 1.5rem; color: #0F3E44;">Historial de Reparaciones</h2>
+
+<div style="background-color: white; border-radius: 15px; padding: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+    <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+            <tr style="background-color: #E3EAEA;">
+                <th style="padding: 0.75rem; text-align: left;">ID</th>
+                <th style="padding: 0.75rem; text-align: left;">Cliente</th>
+                <th style="padding: 0.75rem; text-align: left;">Dispositivo</th>
+                <th style="padding: 0.75rem; text-align: left;">Empleado asignado</th>
+                <th style="padding: 0.75rem; text-align: left;">Estado</th>
+                <th style="padding: 0.75rem; text-align: left;">Fecha ingreso</th>
+                <th style="padding: 0.75rem; text-align: left;">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in historial %}
+            <tr>
+                <td style="padding: 0.75rem;">{{ r.id }}</td>
+                <td>{{ r.dispositivo.cliente.nombre }} {{ r.dispositivo.cliente.apellido }}</td>
+                <td>{{ r.dispositivo.marca }} {{ r.dispositivo.modelo }}</td>
+                <td>{{ r.empleado.first_name }} {{ r.empleado.last_name }}</td>
+                <td><span style="background-color: #81c784; color: white; padding: 0.3rem 0.6rem; border-radius: 20px;">{{ r.estado }}</span></td>
+                <td>{{ r.fecha_ingreso|date:"d/m/Y" }}</td>
+                <td style="display: flex; gap: 0.5rem;">
+                    <a href="{% url 'reparacion_detalle' r.id %}"
+                       style="background-color: #4db6ac; color: white; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.8rem;">
+                       Ver Detalles
+                    </a>
+                    <form action="{% url 'reabrir_reparacion' r.id %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit"
+                            style="background-color: #0F3E44; color: white; padding: 0.5rem 1rem; border-radius: 6px; border: none; font-weight: bold; font-size: 0.8rem; cursor: pointer;">
+                            Reabrir
+                        </button>
+                    </form>
+                    
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
